@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once 'config/database.php';
 
@@ -6,7 +7,7 @@ require_once 'config/database.php';
 header('Content-Type: application/json');
 
 // Prevent including header.php for AJAX requests
-define('IS_AJAX', true);
+// define('IS_AJAX', true);
 
 if (!isset($_SESSION['user_id'])) {
     http_response_code(403);
@@ -81,4 +82,3 @@ if (isset($_POST['query'])) {
     http_response_code(400);
     echo json_encode(['error' => 'Invalid request. Please provide a search query.']);
 }
-?>
