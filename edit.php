@@ -29,7 +29,7 @@ EOT;
 include 'components/header.php';
 ?>
 
-<div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+<div class="overflow-scroll max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
             <h2 class="heading text-2xl text-green-800 mb-6">Edit Student</h2>

@@ -19,7 +19,7 @@ EOT;
 include 'components/header.php';
 ?>
 
-<div class="w-3/4 mx-auto py-6 sm:px-6 lg:px-8">
+<div class="overflow-scroll w-3/4 mx-auto py-6 sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
             <h2 class="heading text-2xl text-green-800 mb-6">Search Students</h2>

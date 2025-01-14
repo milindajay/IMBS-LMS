@@ -36,7 +36,8 @@ include 'components/header.php';
                 <div class="dashboard-card">
                     <h3 class="heading text-lg text-purple-800 mb-2">Reports</h3>
                     <p class="text text-purple-700 mb-4">Generate and view various reports.</p>
-                    <a href="#" class="text bg-purple-800 text-white px-4 py-2 rounded hover:bg-purple-700">View
+                    <a href="reports.php"
+                        class="text bg-purple-800 text-white px-4 py-2 rounded hover:bg-purple-700">View
                         Reports</a>
                 </div>
             </div>
