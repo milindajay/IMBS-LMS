@@ -29,6 +29,7 @@ function performSearch($pdo, $search)
                     'id' => $row['id'],
                     'name' => $row['name'],
                     'nic' => $row['nic'],
+                    'address' => $row['address'],
                     'display' => $row['name'] . ' (' . $row['nic'] . ')'
                 ];
             }
@@ -42,6 +43,7 @@ function performSearch($pdo, $search)
                 $html .= '<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NIC</th>';
                 $html .= '<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>';
                 $html .= '<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course</th>';
+                $html .= '<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>';
                 $html .= '<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>';
                 $html .= '</tr>';
                 $html .= '</thead>';
@@ -52,9 +54,10 @@ function performSearch($pdo, $search)
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text">' . htmlspecialchars($row['nic']) . '</td>';
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text">' . htmlspecialchars($row['name']) . '</td>';
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text">' . htmlspecialchars($row['course']) . '</td>';
+                    $html .= '<td class="px-6 py-4 whitespace-nowrap text">' . htmlspecialchars($row['address']) . '</td>';
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text-sm font-medium">';
-                    $html .= '<a href="edit.php?id=' . $row['id'] . '" class="text-green-800 hover:text-green-900 mr-4">Edit</a>';
-                    $html .= '<a href="delete.php?id=' . $row['id'] . '" class="text-red-600 hover:text-red-700">Delete</a>';
+                    $html .= '<a href="edit.php?id=' . $row['id'] . '" class="rounded-md bg-green-800 text-white px-3.5 py-2.5 hover:bg-green-900 mr-4">Edit</a>';
+                    $html .= '<a href="delete.php?id=' . $row['id'] . '" class="border px-3.5 py-2.5 rounded-md hover:bg-red-600 hover:text-white border-red-600 text-red-600 hover:text-red-700">Delete</a>';
                     $html .= '</td>';
                     $html .= '</tr>';
                 }
