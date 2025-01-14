@@ -11,12 +11,10 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 try {
-    // Fetch active students
     $stmt = $pdo->prepare("SELECT name, nic, course, created_at FROM students WHERE active = TRUE ORDER BY created_at DESC");
     $stmt->execute();
     $activeStudents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Fetch deleted students
     $stmt = $pdo->prepare("SELECT name, nic, course, created_at FROM students WHERE active = FALSE ORDER BY created_at DESC");
     $stmt->execute();
     $deletedStudents = $stmt->fetchAll(PDO::FETCH_ASSOC);

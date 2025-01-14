@@ -63,7 +63,6 @@ include 'components/header.php';
     </div>
 </div>
 
-<!-- Modal for messages -->
 <div id="messageModal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
@@ -75,7 +74,6 @@ include 'components/header.php';
                     <div class="sm:flex sm:items-start">
                         <div id="modalIcon"
                             class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full sm:mx-0 sm:h-10 sm:w-10">
-                            <!-- Icon will be inserted here by JavaScript -->
                         </div>
                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                             <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title"></h3>
@@ -136,7 +134,6 @@ function showModal(title, message, isSuccess, isConfirmation = false, onConfirm 
     closeButton.onclick = () => {
         modal.classList.add('hidden');
         if (!isConfirmation && isSuccess) {
-            // Refresh the page after successful deletion
             window.location.reload();
         }
     };
@@ -173,7 +170,6 @@ function updateSearchResults(html) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = html;
 
-    // Add event listeners to delete buttons
     const deleteButtons = resultsDiv.querySelectorAll('a[href^="delete.php"]');
     deleteButtons.forEach(button => {
         button.onclick = (e) => {

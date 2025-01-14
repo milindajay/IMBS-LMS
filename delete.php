@@ -14,7 +14,7 @@ if (!isset($_POST['id'])) {
 }
 
 try {
-    // First get the student details for the confirmation message
+
     $stmt = $pdo->prepare("SELECT name FROM students WHERE id = ?");
     $stmt->execute([$_POST['id']]);
     $student = $stmt->fetch();
@@ -23,13 +23,13 @@ try {
         exit(json_encode(['error' => 'Student not found']));
     }
 
-    // Deleted the student
     $stmt = $pdo->prepare("UPDATE students SET active = FALSE WHERE id = ?");
     $stmt->execute([$_POST['id']]);
 
     echo json_encode([
         'success' => true,
         'message' => "Student " . htmlspecialchars($student['name']) . " has been deleted successfully."
+
     ]);
 } catch (PDOException $e) {
     error_log('Delete error: ' . $e->getMessage());

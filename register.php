@@ -93,7 +93,6 @@ include 'components/header.php';
     </div>
 </div>
 
-<!-- Modal for success/error messages -->
 <div id="messageModal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
@@ -105,7 +104,6 @@ include 'components/header.php';
                     <div class="sm:flex sm:items-start">
                         <div id="modalIcon"
                             class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full sm:mx-0 sm:h-10 sm:w-10">
-                            <!-- Icon will be inserted here by JavaScript -->
                         </div>
                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                             <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title"></h3>
@@ -153,7 +151,6 @@ document.getElementById('closeModal').addEventListener('click', function() {
     document.getElementById('messageModal').classList.add('hidden');
 });
 
-// Check for messages in the URL
 const urlParams = new URLSearchParams(window.location.search);
 const message = urlParams.get('message');
 const error = urlParams.get('error');

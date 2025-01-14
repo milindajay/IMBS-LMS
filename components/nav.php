@@ -3,26 +3,20 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
-
-// Get username from database
 require_once 'config/database.php';
 $stmt = $pdo->prepare("SELECT username FROM users WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
 $username = htmlspecialchars($user['username']);
 ?>
-
 <header class="bg-white shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
-            <!-- Logo on the left -->
             <div class="flex-shrink-0">
                 <a href="index.php" class="flex items-center">
                     <img src="assets/images/imbslogo.png" alt="IMBS Logo" class="h-8 w-auto">
                 </a>
-            </div>
-
-            <!-- Navigation links in center -->
+            </div>>
             <div class="hidden md:block flex-1">
                 <div class="flex justify-center">
                     <nav class="flex space-x-8">
@@ -41,7 +35,6 @@ $username = htmlspecialchars($user['username']);
                 </div>
             </div>
 
-            <!-- Welcome message and Logout button on the right -->
             <div class="flex items-center space-x-4">
                 <span class="text text-gray-700">Welcome, <?php echo $username; ?>!</span>
                 <a href="logout.php"
@@ -51,8 +44,6 @@ $username = htmlspecialchars($user['username']);
             </div>
         </div>
     </div>
-
-    <!-- Mobile menu button and menu -->
     <div class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="index.php"

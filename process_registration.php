@@ -14,14 +14,12 @@ $telephone = $_POST['telephone'] ?? '';
 $course = $_POST['course'] ?? '';
 $address = $_POST['address'] ?? '';
 
-// Validate input
 if (empty($name) || empty($nic) || empty($telephone) || empty($course) || empty($address)) {
     header('Location: register.php?error=' . urlencode('All fields are required.'));
     exit();
 }
 
 try {
-    // Check for duplicate NIC
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM students WHERE nic = ?");
     $stmt->execute([$nic]);
     $count = $stmt->fetchColumn();
@@ -31,7 +29,6 @@ try {
         exit();
     }
 
-    // Insert new student
     $stmt = $pdo->prepare("INSERT INTO students (name, nic, telephone, course, address) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$name, $nic, $telephone, $course, $address]);
 

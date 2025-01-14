@@ -22,7 +22,7 @@ include 'components/header.php';
         <h1 class="text-2xl font-semibold text-gray-900">Student Reports</h1>
 
         <div class="mt-4">
-            <input type="text" id="searchInput" placeholder="Search students..."
+            <input type="text" id="searchInput" placeholder="Search Records..."
                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
         </div>
 
@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let activeStudents = [];
     let deletedStudents = [];
 
-    // Fetch student data
     fetch('get_students.php')
         .then(response => response.json())
         .then(data => {
@@ -165,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Search functionality
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.toLowerCase();

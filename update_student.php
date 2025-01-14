@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once 'config/database.php';
 
@@ -27,4 +28,3 @@ try {
     error_log('Update error: ' . $e->getMessage());
     header('Location: edit.php?id=' . $_POST['id'] . '&error=' . urlencode('An error occurred while updating the student information.'));
 }
-?>
