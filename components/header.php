@@ -27,3 +27,6 @@
 </head>
 
 <body class="bg-gray-100 flex flex-col h-full">
+    <?php if(isset($_SESSION['user_id'])): ?>
+    <?php include 'nav.php'; ?>
+    <?php endif; ?>
