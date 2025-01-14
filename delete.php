@@ -23,8 +23,8 @@ try {
         exit(json_encode(['error' => 'Student not found']));
     }
 
-    // Delete the student
-    $stmt = $pdo->prepare("DELETE FROM students WHERE id = ?");
+    // Deleted the student
+    $stmt = $pdo->prepare("UPDATE students SET active = FALSE WHERE id = ?");
     $stmt->execute([$_POST['id']]);
 
     echo json_encode([

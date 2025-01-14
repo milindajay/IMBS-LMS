@@ -50,6 +50,7 @@ include 'components/header.php';
                     </button>
                 </div>
 
+
                 <div id="searchSuggestions" class="w-full mt-1 hidden z-100 border-0 rounded-lg bg-gray-100 p-3 pl-5">
                     <!-- Search suggestions will be populated here -->
                 </div>

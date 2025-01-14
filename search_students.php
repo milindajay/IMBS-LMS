@@ -3,27 +3,22 @@
 session_start();
 require_once 'config/database.php';
 
-// Set JSON header before any output
 header('Content-Type: application/json');
-
-// Prevent including header.php for AJAX requests
-// define('IS_AJAX', true);
 
 if (!isset($_SESSION['user_id'])) {
     http_response_code(403);
     exit(json_encode(['error' => 'Unauthorized']));
 }
 
-if (isset($_POST['query'])) {
-    $search = trim($_POST['query']);
+function performSearch($pdo, $search)
+{
     $suggest = isset($_POST['suggest']) ? true : false;
 
     try {
-        // Clean the search term
         $searchTerm = preg_replace('/\s*$$[^)]*$$/', '', $search);
         $searchTerm = trim($searchTerm);
 
-        $stmt = $pdo->prepare("SELECT * FROM students WHERE nic LIKE :search OR name LIKE :search LIMIT 10");
+        $stmt = $pdo->prepare("SELECT * FROM students WHERE (nic LIKE :search OR name LIKE :search) AND active = TRUE LIMIT 10");
         $stmt->execute(['search' => "%$searchTerm%"]);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -59,7 +54,7 @@ if (isset($_POST['query'])) {
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text">' . htmlspecialchars($row['course']) . '</td>';
                     $html .= '<td class="px-6 py-4 whitespace-nowrap text-sm font-medium">';
                     $html .= '<a href="edit.php?id=' . $row['id'] . '" class="text-green-800 hover:text-green-900 mr-4">Edit</a>';
-                    $html .= '<a href="delete.php?id=' . $row['id'] . '" class="text-red-600 hover:text-red-700" onclick="return confirm(\'Are you sure?\')">Delete</a>';
+                    $html .= '<a href="delete.php?id=' . $row['id'] . '" class="text-red-600 hover:text-red-700">Delete</a>';
                     $html .= '</td>';
                     $html .= '</tr>';
                 }
@@ -78,6 +73,15 @@ if (isset($_POST['query'])) {
         http_response_code(500);
         echo json_encode(['error' => 'An error occurred while searching. Please try again.']);
     }
+}
+
+
+if (isset($_POST['query'])) {
+    $search = trim($_POST['query']);
+    $searchTerm = preg_replace('/\s*$$[^)]*$$/', '', $search);
+    $searchTerm = trim($searchTerm);
+
+    $results = performSearch($pdo, $searchTerm);
 } else {
     http_response_code(400);
     echo json_encode(['error' => 'Invalid request. Please provide a search query.']);
