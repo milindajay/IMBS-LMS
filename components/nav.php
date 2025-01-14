@@ -35,8 +35,8 @@ $username = htmlspecialchars($user['username']);
                         <a href="search.php"
                             class="text text-gray-900 hover:text-green-800 px-3 py-2 rounded-md text-sm font-medium <?php echo ($_SERVER['PHP_SELF'] == '/search.php') ? 'text-green-800' : ''; ?>">Search
                             Students</a>
-                        <a href="#"
-                            class="text text-gray-900 hover:text-green-800 px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                        <a href="reports.php"
+                            class="text <?php echo ($_SERVER['PHP_SELF'] == '/reports.php') ? 'text-green-800' : 'text-gray-900 hover:text-green-800'; ?> px-3 py-2 rounded-md text-sm font-medium">Reports</a>
                     </nav>
                     </nav>
                 </div>
@@ -64,8 +64,8 @@ $username = htmlspecialchars($user['username']);
             <a href="search.php"
                 class="text block px-3 py-2 rounded-md text-base font-medium <?php echo ($_SERVER['PHP_SELF'] == '/search.php') ? 'text-green-800' : 'text-gray-900 hover:text-green-800'; ?>">Search
                 Students</a>
-            <a href="#"
-                class="text text-gray-900 hover:text-green-800 block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+            <a href="reports.php"
+                class="text block px-3 py-2 rounded-md text-base font-medium <?php echo ($_SERVER['PHP_SELF'] == '/reports.php') ? 'text-green-800' : 'text-gray-900 hover:text-green-800'; ?>">Reports</a>
         </div>
     </div>
 </header>
