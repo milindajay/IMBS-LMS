@@ -1,7 +1,7 @@
 <footer class="bg-white shadow-lg mt-auto">
     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center">
-            <div class="text text-sm text-gray-500">
+        <div class="flex justify-center items-center">
+            <div class="text text-sm text-gray-500 text-center">
                 &copy; <?php echo date('Y'); ?> IMBS LMS - 177594 - Milinda John - DIT77
             </div>
         </div>

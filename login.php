@@ -12,28 +12,41 @@ EOT;
 
 include 'components/header.php';
 ?>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-10 w-auto" src="assets/images/imbslogo.png" alt="Your Company">
+        <h2 class="heading uppercase mt-10 text-center text-2xl/9 font-bold tracking-tight text-green-800">Welcome to
+            IMBS LMS
+        </h2>
+    </div>
 
-<div class="min-h-screen flex items-center justify-center">
-    <div class="login-form">
-        <div class="text-center mb-8">
-            <img src="assets/images/imbslogo.png" alt="IMBS Logo" class="mx-auto w-48 mb-4">
-            <h1 class="heading text-2xl text-green-800">Welcome to IMBS LMS</h1>
-        </div>
-        <form action="auth.php" method="POST" class="space-y-6">
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" action="auth.php" method="POST">
             <div>
-                <label class="text block text-sm text-gray-700">Username</label>
-                <input type="text" name="username" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200">
+                <label for="username" class="text block text-sm/6 font-medium text-gray-900">Username</label>
+                <div class="mt-2">
+                    <input type="text" name="username" id="username" autocomplete="username" required
+                        placeholder="admin"
+                        class="block text w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                </div>
             </div>
+
             <div>
-                <label class="text block text-sm text-gray-700">Password</label>
-                <input type="password" name="password" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200">
+                <div class="flex items-center justify-between">
+                    <label for="password" class="text block text-sm/6 font-medium text-gray-900">Password</label>
+                </div>
+                <div class="mt-2">
+                    <input type="password" name="password" id="password" autocomplete="current-password" required
+                        placeholder="admin123"
+                        class="block text w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                </div>
             </div>
-            <button type="submit"
-                class="w-full bg-green-800 text-white rounded-md py-2 px-4 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-                Login
-            </button>
+
+            <div>
+                <button type="submit"
+                    class="flex w-full text justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+                    in</button>
+            </div>
         </form>
     </div>
 </div>
