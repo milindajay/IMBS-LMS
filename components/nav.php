@@ -18,8 +18,7 @@ $username = htmlspecialchars($user['username']);
             <!-- Logo on the left -->
             <div class="flex-shrink-0">
                 <a href="index.php" class="flex items-center">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/imbslogo-mnIPjkKWNvXP0W8l0MUMbOBQNIVUG4.png"
-                        alt="IMBS Logo" class="h-8 w-auto">
+                    <img src="assets/images/imbslogo.png" alt="IMBS Logo" class="h-8 w-auto">
                 </a>
             </div>
 
